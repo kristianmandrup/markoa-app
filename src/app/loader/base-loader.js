@@ -1,4 +1,4 @@
-import Configurator from '../../server/configurator';
+import Configurator from '../configurator';
 import path from 'path';
 
 export default class BaseLoader extends Configurator {

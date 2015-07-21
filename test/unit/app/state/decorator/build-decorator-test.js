@@ -1,5 +1,5 @@
 import Loader from '../../../../../src/app/loader';
-import buildDecorator from '../../../../../src/app/state/decorator/decorators';
+import buildDecorator from '../../../../../src/app/state/decorator/build-decorator';
 
 describe('#buildDecorator', () => {
   it('exists', () => {
@@ -8,7 +8,7 @@ describe('#buildDecorator', () => {
 
   it('can build a decorator function', () => {
     let conf = {};
-    let loader    = new Loader(conf);
+    let loader = new Loader(conf);
     let myDecorator = (x) => {
       return `${x}-called`;
     };

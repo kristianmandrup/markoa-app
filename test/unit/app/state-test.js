@@ -52,7 +52,7 @@ describe('State', () => {
     });
 
     describe('#unmount', () => {
-      let state = new State();
+      state = new State();
 
       it('mounts and chains', () => {
         expect(state.unmount('content')).to.eql(state);

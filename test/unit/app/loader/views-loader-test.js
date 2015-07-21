@@ -54,13 +54,13 @@ describe('ViewsLoader', () => {
       });
     });
 
-    describe.skip('#resolvePageTemplateRootPaths', () => {
-      let oldIndexRootPath = loader.views.pages.index.rootPath;
+    // describe.skip('#resolvePageTemplateRootPaths', () => {
+    //   let oldIndexRootPath = loader.views.pages.index.rootPath;
 
-      it('resolves rootPath for each active page', () => {
-        loader.resolvePageTemplateRootPaths();
-        expect(loader.views.pages.index.rootPath).to.not.eql(oldIndexRootPath);
-      });
-    });
+    //   it('resolves rootPath for each active page', () => {
+    //     loader.resolvePageTemplateRootPaths();
+    //     expect(loader.views.pages.index.rootPath).to.not.eql(oldIndexRootPath);
+    //   });
+    // });
   });
 });

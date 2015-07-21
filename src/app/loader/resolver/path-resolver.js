@@ -4,10 +4,10 @@ import util from 'util';
 export default class PathResolver {
   resolvePath(root, folder) {
     if (!root) {
-      throw 'missing root in resolvePath';
+      throw 'missing root in resolvePath: ' + folder;
     }
     if (!folder) {
-      throw 'missing folder in resolvePath';
+      throw 'missing folder in resolvePath: ' + root;
     }
 
     return path.resolve(path.join(root, folder));

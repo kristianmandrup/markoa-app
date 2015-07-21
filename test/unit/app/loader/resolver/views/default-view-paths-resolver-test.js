@@ -1,4 +1,4 @@
-import DefaultViewPathsResolver from '../../../../../src/app/loader/resolver/default-view-paths-resolver';
+import DefaultViewPathsResolver from '../../../../../../src/app/loader/resolver/views/default-view-paths-resolver';
 
 describe('DefaultViewPathsResolver', () => {
   it('exists', () => {

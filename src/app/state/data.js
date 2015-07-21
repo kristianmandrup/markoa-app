@@ -20,7 +20,7 @@ export default class Data extends Configurator {
         data = props.data || props;
         name = props.name;
       }
-      return data || this.defaultData[props.name] || this.defaultData;
+      return data || this.defaultData[name] || this.defaultData;
     } catch (e) {
       return {};
     }

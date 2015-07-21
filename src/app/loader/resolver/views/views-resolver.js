@@ -1,4 +1,4 @@
-import Configurator from '../../../../server/configurator';
+import Configurator from '../../../configurator';
 import PathResolver from '../path-resolver';
 
 export default class ViewsResolver extends Configurator {

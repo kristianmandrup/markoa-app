@@ -1,4 +1,5 @@
-import AppViewPathsResolver from '../../../../../src/app/loader/resolver/app-view-paths-resolver';
+import AppViewPathsResolver from '../../../../../../src/app/loader/resolver/views/app-view-paths-resolver';
+import path from 'util';
 
 describe('AppViewPathsResolver', () => {
   it('exists', () => {
@@ -6,12 +7,14 @@ describe('AppViewPathsResolver', () => {
   });
 
   describe('instance', () => {
-    let rootPath = 'pages/index';
+    let rootPath = 'repos/indexApp';
+    let root = 'views/pages';
     let active = ['index'];
     let mounted = {
       index: {
+        rootPath: 'repos/indexApp',
         views: {
-          root: rootPath
+          root: root
         }
       }
     };
@@ -50,7 +53,8 @@ describe('AppViewPathsResolver', () => {
       resolver.resolve();
 
       it('resolves index rootPath to ???', () => {
-        expect(resolver.mountedApps.index.rootPath).to.eql(rootPath);
+        let rootPathExpected = path.join(rootPath, root, 'index');
+        expect(resolver.mountedApps.index.rootPath).to.eql(rootPathExpected);
       });
     });
   });
