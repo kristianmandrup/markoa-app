@@ -14,22 +14,23 @@
     "url": "https://github.com/kristianmandrup/markoa-app.git"
   },
   "keywords": [
-    "boilerplate",
-    "es6",
+    "server",
+    "koa",
+    "marko",
     "es2015",
     "node",
-    "starter",
-    "kit",
-    "transpile",
-    "6to5",
     "babel"
   ],
-  "author": "Jmeas",
+  "author": "Kristian Mandrup <kmandrup@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kristianmandrup/markoa-app/issues"
   },
   "homepage": "https://github.com/kristianmandrup/markoa-app",
+  "dependencies": {
+    "koa": "^0.21.0",
+    "marko": "^2.7.6"
+  },
   "devDependencies": {
     "babel": "^5.0.0",
     "babel-core": "^5.2.17",
