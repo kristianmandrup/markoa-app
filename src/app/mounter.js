@@ -1,4 +1,4 @@
-import Configurator from '../server/configurator';
+import Configurator from './configurator';
 
 // used by Application to mount sub-applications (pages)
 export default class Mounter extends Configurator {

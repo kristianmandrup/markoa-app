@@ -1,4 +1,4 @@
-import Configurator from '../../server/configurator';
+import Configurator from '../configurator';
 
 export default class Data extends Configurator {
   constructor(config) {

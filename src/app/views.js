@@ -1,4 +1,4 @@
-import Configurator from '../server/configurator';
+import Configurator from './configurator';
 import Loader from './loader';
 
 export default class Views extends Configurator {

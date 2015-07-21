@@ -1,4 +1,4 @@
-import Configurator from '../server/configurator';
+import Configurator from './configurator';
 import StateLoader from './loader/state-loader';
 import ViewsLoader from './loader/views-loader';
 

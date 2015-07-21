@@ -1,4 +1,4 @@
-import Configurator from '../../server/configurator';
+import Configurator from '../configurator';
 import Data from './data';
 
 export default class State extends Configurator {
