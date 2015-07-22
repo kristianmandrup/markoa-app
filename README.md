@@ -4,6 +4,8 @@ Based on [babel-library-boilerplate](https://github.com/babel/babel-library-boil
 
 "A boilerplate to author libraries in ES2015 for Node and the browser"
 
+Better use the [generator](generator-es6-library-boilerplate)
+
 ## Usage
 
 Add as npm dependency:

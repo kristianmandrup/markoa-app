@@ -29,7 +29,8 @@
   "homepage": "https://github.com/kristianmandrup/markoa-app",
   "dependencies": {
     "koa": "^0.21.0",
-    "marko": "^2.7.6"
+    "marko": "^2.7.6",
+    "markoa-server": "kristianmandrup/markoa-server"
   },
   "devDependencies": {
     "babel": "^5.0.0",
