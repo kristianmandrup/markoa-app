@@ -1,5 +1,4 @@
 import BaseLoader from './base-loader';
-import DefaultViewPathsResolver from './resolver/views/default-view-paths-resolver';
 import AppViewPathsResolver from './resolver/views/app-view-paths-resolver';
 
 // TODO: Clean this up! Simplify!!
@@ -12,12 +11,7 @@ export default class StateLoader extends BaseLoader {
   }
 
   configure() {
-    this.resolveDefaultViewPaths();
     this.resolveAppViewPaths();
-  }
-
-  resolveDefaultViewPaths() {
-    new DefaultViewPathsResolver(this.config).resolve();
   }
 
   resolveAppViewPaths() {

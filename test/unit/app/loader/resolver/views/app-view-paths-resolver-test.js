@@ -1,9 +1,9 @@
 import AppViewPathsResolver from '../../../../../../src/app/loader/resolver/views/app-view-paths-resolver';
-import path from 'util';
+import path from 'path';
 
 let indexRootPath = 'repos/indexApp';
 let mobilePath = 'mobile/casino';
-let viewsRoot = 'views'
+let viewsRoot = 'views';
 let assetsRoot = 'public';
 let pagesRoot = 'my-pages';
 let activePages = ['casino', 'mobile'];
@@ -12,7 +12,7 @@ let indexConfig = {
   rootPath: indexRootPath,
   pages: {
     active: activePages,
-    main: 'casino'
+    main: 'casino',
     sub: [
       {mobile: mobilePath}
     ]
@@ -24,7 +24,7 @@ let indexConfig = {
       root: assetsRoot
     },
     pages: {
-      root: pagesRoot,
+      root: pagesRoot
     }
   }
 };
@@ -35,14 +35,13 @@ describe('AppViewPathsResolver', () => {
   });
 
   describe('instance', () => {
-    let rootPath = 'repos/indexApp';
-    let active = ['index'];
+    let activeApps = ['index'];
     let mounted = {
       index: indexConfig
     };
 
     let apps = {
-      active: active,
+      active: activeApps,
       mounted: mounted
     };
 
@@ -60,7 +59,7 @@ describe('AppViewPathsResolver', () => {
 
     describe('#activeApps', () => {
       it('returns list of active apps', () => {
-        expect(resolver.activeApps).to.eql(active);
+        expect(resolver.activeApps).to.eql(activeApps);
       });
     });
 
@@ -91,7 +90,6 @@ describe('AppViewPathsResolver', () => {
 
       describe('views.pages.rootPath', () => {
         it('resolves to repos/indexApp/views/my-pages', () => {
-          let rootPathExpected = path.join(rootPath, viewsRoot, pagesRoot);
           expect(indexApp.views.pages.rootPath).to.eql(pagesPath);
         });
       });
