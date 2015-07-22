@@ -45,8 +45,15 @@ server.mountAppView(viewsConf, 'index');
 ## App State mounting
 
 ```js
-mountAppState(data, appName) {
-  this.app(name).state.merge(data);
+function stateResolver(data, [decorator]) {
+  return resolvedData;
+}
+```
+
+```js
+mountAppState(data, appName, [stateResolver]) {
+  var resolvedData = stateResolver(data); // optional
+  this.app(name).state.merge(resolvedData);
 }
 ```
 
@@ -55,7 +62,7 @@ mountAppState(data, appName) {
 ```js
 mountAppStates(data, appNames) {
   for (let name in appNames) {
-    this.app(name).state.merge(data[name]);
+    this.mountAppState(data, name);
   }
 }
 ```

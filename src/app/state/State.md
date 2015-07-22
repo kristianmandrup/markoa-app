@@ -31,4 +31,43 @@ function cmsContentDecorator(loader, value) {
 var myStateDecorator = buildDecorator(loader, cmsContentDecorator);
 ```
 
+### State injectors
 
+Before the State is passed to the template, there should be a chance for the app/server to modify, transform or inject certain state given the current context. For this purpose we introduce a `StateInjector`.
+
+```js
+class StateInjector extends Configurator {
+  constructor(config) {
+    super(config)
+  }
+
+  inject(context, state, next {
+    next(newState);
+  }
+}
+```
+
+State Injectors are registered as a pipeline, similar to how Middleware is registered with a Koa app.
+Each state Injector is then called in succession with the state returned by the previous injector for further modification.
+
+Injectors can be used to insert user session data, locale, language (from browser header?), URL params etc.
+
+State injectors can be registered per application or per site. For each page, first the site injectors pipeline is called and then the app injector pipeline.
+
+Register an App State injector:
+
+`app.state.addInjector(myStateInjector);`
+
+Register a Site State injector:
+
+`server.configuration.addInjector(myStateInjector);`
+
+#### Injector Context
+
+The `context` Object contains all the relevant context to extract from. By default it only contains the HTTP request object.
+
+```js
+{
+  request: request
+}
+```
