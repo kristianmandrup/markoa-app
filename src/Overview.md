@@ -7,21 +7,51 @@
 
 ### File structure
 
-- `app` : for building an application
-- `server` : for setting up the server
-- `utils` : general purpose utils
+- `/loader` : helpers for loading app: state and views
+- `/state` : for configuring app state
+- `mounter.js` : for mounting and unmounting apps
+- `loader.js` : for loading state and views of the app
+- `configurator.js` : base class - to manage general config object
 
 ### Application
 
-See [Application docs](https://github.com/kristianmandrup/fresh-markoa-es6-node/tree/master/src/app/Application.md)
+### State
 
-### Server
+Loads and configures application State.
 
-See [Server docs](https://github.com/kristianmandrup/fresh-markoa-es6-node/tree/master/src/server/Server.md)
+### Views
 
-### Utils
+[Sample views config](https://github.com/kristianmandrup/offside-defaults/blob/master/src/views/index.js)
 
-See [Utils docs](https://github.com/kristianmandrup/fresh-markoa-es6-node/tree/master/src/utils/Utils.md)
+```js
+{
+  pages: {
+    active: ['casino', 'mobile'],
+    main: 'casino'
+    sub: [
+      {mobile: 'mobile/casino'}
+    ]
+  },
+  views: {
+    root: 'views',
+    assets: {
+      // used to build rootPath
+      root: 'public'
+    },
+    pages: {
+      root: 'my-pages',
+    }
+  }
+};
+```
+
+Note: You only need to specify a Views config if you *break* the default conventions.
+
+See [Views](https://github.com/kristianmandrup/markoa-app/tree/master/src/app/Views.md)
+
+### Views Loader
+
+See [Views-Loader](https://github.com/kristianmandrup/markoa-app/tree/master/src/app/loader/Views-Loader.md)
 
 ### Defaults
 

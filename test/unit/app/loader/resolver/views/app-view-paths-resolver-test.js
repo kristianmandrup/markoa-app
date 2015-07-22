@@ -1,6 +1,34 @@
 import AppViewPathsResolver from '../../../../../../src/app/loader/resolver/views/app-view-paths-resolver';
 import path from 'util';
 
+let indexRootPath = 'repos/indexApp';
+let mobilePath = 'mobile/casino';
+let viewsRoot = 'views'
+let assetsRoot = 'public';
+let pagesRoot = 'my-pages';
+let activePages = ['casino', 'mobile'];
+
+let indexConfig = {
+  rootPath: indexRootPath,
+  pages: {
+    active: activePages,
+    main: 'casino'
+    sub: [
+      {mobile: mobilePath}
+    ]
+  },
+  views: {
+    root: viewsRoot,
+    assets: {
+      // used to build rootPath
+      root: assetsRoot
+    },
+    pages: {
+      root: pagesRoot,
+    }
+  }
+};
+
 describe('AppViewPathsResolver', () => {
   it('exists', () => {
     expect(AppViewPathsResolver).to.not.be.undefined;
@@ -8,15 +36,9 @@ describe('AppViewPathsResolver', () => {
 
   describe('instance', () => {
     let rootPath = 'repos/indexApp';
-    let root = 'views/pages';
     let active = ['index'];
     let mounted = {
-      index: {
-        rootPath: 'repos/indexApp',
-        views: {
-          root: root
-        }
-      }
+      index: indexConfig
     };
 
     let apps = {
@@ -48,13 +70,30 @@ describe('AppViewPathsResolver', () => {
       });
     });
 
-    // is this needed anymore with new design?
     describe('#resolve', () => {
       resolver.resolve();
+      let indexApp = resolver.mountedApps.index;
+      let viewsPath = path.join(indexRootPath, viewsRoot);
+      let assetsPath = path.join(viewsPath, assetsRoot);
+      let pagesPath = path.join(viewsPath, pagesRoot);
 
-      it('resolves index rootPath to ???', () => {
-        let rootPathExpected = path.join(rootPath, root, 'index');
-        expect(resolver.mountedApps.index.rootPath).to.eql(rootPathExpected);
+      describe('views.rootPath', () => {
+        it('resolves to repos/indexApp/views', () => {
+          expect(indexApp.views.rootPath).to.eql(viewsPath);
+        });
+      });
+
+      describe('views.assets.rootPath', () => {
+        it('resolves to repos/indexApp/views/public', () => {
+          expect(indexApp.views.assets.rootPath).to.eql(assetsPath);
+        });
+      });
+
+      describe('views.pages.rootPath', () => {
+        it('resolves to repos/indexApp/views/my-pages', () => {
+          let rootPathExpected = path.join(rootPath, viewsRoot, pagesRoot);
+          expect(indexApp.views.pages.rootPath).to.eql(pagesPath);
+        });
       });
     });
   });
