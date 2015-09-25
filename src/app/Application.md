@@ -93,6 +93,7 @@ var myState = new Views({
 
 ## Application Mounting
 
+```js
 server.mount(new Application({
   state: myState
 }, 'index');
@@ -113,10 +114,3 @@ or more directly
 indexApp.mountViews(new Views());
 indexApp.mountState(new State());
 ```
-
-
-
-
-
-
-
